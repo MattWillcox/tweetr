@@ -6,14 +6,25 @@ function createTweetHeader(tweet) {
     tweetHeader.append(`<img src=${tweet.user.avatars.small}>`)
     .append(`<h1>${tweet.user.name}</h1>`)
     .append(`<span class='handle'>${tweet.user.handle}</span>`);
+    return tweetHeader;
 
-    console.log(tweetHeader);
- }
+}
+
+function createTweetFooter(tweet) {
+  let tweetFooter = $( document.createElement('footer'));
+  tweetFooter.append("<div class='timestamp-wrapper'>")
+  tweetFooter.find('.timestamp-wrapper').append(`<span class='timestamp'>${tweet.created_at}`);
+  tweetFooter.find('.timestamp').append('<a href="/">Report</a><a href="/">Retweet</a><a href="/">Like</a>');
+  return tweetFooter;
+}
 
 function createTweetElement(tweet) {
   let newTweet = $( document.createElement('article') );
   newTweet.addClass("tweet");
-  createTweetHeader(tweet);
+  newTweet.append(createTweetHeader(tweet));
+  newTweet.append(`<div class ="tweet-content">${tweet.content}`);
+  newTweet.append(createTweetFooter(tweet))
+  return newTweet;
 }
 
 
@@ -36,8 +47,6 @@ function createTweetElement(tweet) {
 </article>
 */
 
-});
-
 var tweetData = {
   "user": {
     "name": "Newton",
@@ -59,3 +68,6 @@ var $tweet = createTweetElement(tweetData);
 // Test / driver code (temporary)
 console.log($tweet); // to see what it looks like
 //$('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+
+});
+
