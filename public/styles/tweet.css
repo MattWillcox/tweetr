@@ -1,0 +1,91 @@
+.container h1 {
+  border-bottom: 1px solid black;
+  margin-top: 0px;
+}
+
+.container form textarea {
+  position: relative;
+  width: 365px;
+  padding: 5px;
+}
+
+.counter {
+  float: right;
+  padding-top: 5px;
+}
+
+.new-tweet {
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  background-color: #EAEAEA;
+  padding: 10px 10px 10px 10px;
+}
+
+.tweet-list img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.tweet span {
+  margin-left: auto;
+}
+
+.tweet header {
+  display: flex;
+  flex-direction: row;
+}
+
+.tweet h2 {
+  padding-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-bottom: transparent;
+  line-height: 40px;
+}
+
+.tweet-content {
+  background-color: white;
+  width: 345px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+}
+
+.tweet-bottom a {
+  float: right;
+  padding-left: 3px;
+  font-size: 80%;
+  line-height:20px;
+  visibility: hidden;
+
+}
+
+.tweet-list:hover footer .tweet-bottom a {
+  visibility: visible;
+
+}
+
+.tweet-bottom {
+  font-size: 60%;
+}
+
+.tweet {
+  border-radius: 5px;
+  background-color: #EAEAEA;
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 20px;
+}
+
+.tweet-list div {
+  padding: 10px;
+}
+
+.tweet-list {
+  margin-left: 2em;
+  margin-right: 2em;
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+}
