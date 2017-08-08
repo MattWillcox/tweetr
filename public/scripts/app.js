@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
 
   var data = [
     {
@@ -12,7 +12,7 @@ $(document).ready(function(){
         "handle": "@SirIsaac"
       },
       "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
+        "text": "If I have seen further it is by standing on the shoulders of giants. This is some extra stuff to make this super long."
       },
       "created_at": 1461116232227
     },
@@ -41,7 +41,7 @@ $(document).ready(function(){
         "handle": "@johann49"
       },
       "content": {
-        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+        "text": "<script>alert('uh oh!');</script>"
       },
       "created_at": 1461113796368
     }
@@ -57,30 +57,29 @@ $(document).ready(function(){
   }
 
   function createTweetHeader(tweet) {
-      let tweetHeader = $( document.createElement('header'));
-      tweetHeader.append(`<img src=${tweet.user.avatars.small}>`)
-      .append(`<h2 class='userName'>${tweet.user.name}</h2>`)
+      let $tweetHeader = $('<header>');
+      $tweetHeader.append(`<img src=${tweet.user.avatars.small}>`)
+      .append(`<h2 class='user-name'>${tweet.user.name}</h2>`)
       .append(`<span class='handle'>${tweet.user.handle}</span>`);
-      return tweetHeader;
-
+      return $tweetHeader;
   }
 
   function createTweetFooter(tweet) {
-    let tweetFooter = $( document.createElement('footer'));
-    tweetFooter.append("<div class='timestamp-wrapper'>")
+    let $tweetFooter = $('<footer>');
+    $tweetFooter.append("<div class='tweet-bottom-wrapper'>")
     let timeStamp = $.format.date(tweet.created_at, "dd/MM/yyyy HH:mm:ss");
-    tweetFooter.find('.timestamp-wrapper').append(`<span class='timestamp'>${timeStamp}`);
-    tweetFooter.find('.timestamp').append('<a href="/">Report</a><a href="/">Retweet</a><a href="/">Like</a>');
-    return tweetFooter;
+    $tweetFooter.find('.tweet-bottom-wrapper').append(`<span class='tweet-bottom'>${timeStamp}`);
+    $tweetFooter.find('.tweet-bottom').append('<a href="/">Report</a><a href="/">Retweet</a><a href="/">Like</a>');
+    return $tweetFooter;
   }
 
   function createTweetElement(tweet) {
-    let newTweet = $( document.createElement('article') );
-    newTweet.addClass("tweet");
-    newTweet.append(createTweetHeader(tweet));
-    newTweet.append(`<div class ="tweet-content">${tweet.content.text}`);
-    newTweet.append(createTweetFooter(tweet))
-    return newTweet;
+    let $newTweet = $('<article class="tweet">');
+    $newTweet.append(createTweetHeader(tweet));
+    let tweetContent = $('<div class="tweet-content">').text(tweet.content.text);
+    $newTweet.append(tweetContent);
+    $newTweet.append(createTweetFooter(tweet))
+    return $newTweet;
   }
 
 renderTweets(data);
