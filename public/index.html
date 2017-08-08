@@ -7,26 +7,58 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action='/tweets/' method='POST'>
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
+      <br>
+      <section class='tweet-list'>
+        <article class='tweet'>
+          <header>
+            <img src="https://vignette1.wikia.nocookie.net/clubpenguin/images/e/ea/5155_icon.png/revision/latest?cb=20120616105857">
+            <h1>Matt Willcox</h1>
+            <span class='handle'>@MattWillcox</span>
+          </header>
+          <div class='tweet-content'>This is my tweet!</div>
+          <footer>
+          <div class='timestamp-wrapper'>
+            <span class="timestamp">10 days ago
+              <a href="/">Report</a>
+              <a href="/">Retweet</a>
+              <a href="/">Like</a>
+            </span>
+          </div>
+          </footer>
+        </article>
     </main>
 
   </body>
