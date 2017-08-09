@@ -84,5 +84,9 @@ $(function(){
 
 renderTweets(data);
 
+$('.add-tweet').on('submit', function(event) {
+  event.preventDefault();
+  $.post("/tweets", $(this).find('textarea').serialize());
+  });
 });
 
