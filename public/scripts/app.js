@@ -39,11 +39,34 @@ $(function(){
     $.get("/tweets", (data) => renderTweets(data));
   }
 
-loadTweets();
+  function formValidator(data){
+    if(data === "" || data === null){
+      event.preventDefault();
+      $('<p>').text('Please enter some text.').appendTo('.add-tweet');
+      return false;
+    }
+    if(data.length > 140){
+      event.preventDefault();
+      $('<p>').text('Too many characters.').appendTo('.add-tweet');
+      return false;
+    }
+    return true;
+  }
 
-$('.add-tweet').on('submit', function(event) {
-  event.preventDefault();
-  $.post("/tweets", $(this).find('textarea').serialize());
+  loadTweets();
+
+  $('.add-tweet').on('submit', function() {
+    let $textArea = $(this).find('textarea');
+    if(formValidator($textArea.val())){
+      event.preventDefault();
+      $.post("/tweets", $textArea.serialize(), function (){
+      $textArea.val('');
+      $(this).find('.counter').text('140');
+      });
+    }
+    $textArea.on('focus', function () {
+      $('.add-tweet').find('p').remove();
+    });
   });
 });
 
