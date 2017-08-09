@@ -5,7 +5,7 @@ $(function(){
       // calls createTweetElement for each tweet
       // takes return value and appends it to the tweets container
     for(let i of tweets){
-      $('.tweet-list').append(createTweetElement(i));
+      $('.tweet-list').prepend(createTweetElement(i));
     }
   }
 
@@ -59,14 +59,21 @@ $(function(){
     let $textArea = $(this).find('textarea');
     if(formValidator($textArea.val())){
       event.preventDefault();
-      $.post("/tweets", $textArea.serialize(), function (){
+      $.post("/tweets", $textArea.serialize(), function () {
+        $.get("/tweets", (data) => {
+          let tweetsLength = data.length;
+          renderTweets([data[tweetsLength-1]]);
+        });
+      });
       $textArea.val('');
       $(this).find('.counter').text('140');
+      $textArea.on('focus', function () {
+        $('.add-tweet').find('p').remove();
       });
     }
-    $textArea.on('focus', function () {
-      $('.add-tweet').find('p').remove();
-    });
+  });
+
+  $('.compose').on('click', function() {
+    $('.new-tweet').slideToggle("slow").find('textarea').focus();
   });
 });
-

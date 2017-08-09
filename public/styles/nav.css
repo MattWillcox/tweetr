@@ -20,3 +20,13 @@
   width: 80px;
   float: left;
 }
+
+.compose {
+  float: right;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.compose:hover {
+  cursor: pointer;
+}
