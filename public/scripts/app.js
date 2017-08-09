@@ -60,13 +60,9 @@ $(function(){
     if(formValidator($textArea.val())){
       event.preventDefault();
       $.post("/tweets", $textArea.serialize(), function () {
-        $.get("/tweets", (data) => {
-          let tweetsLength = data.length;
-          renderTweets([data[tweetsLength-1]]);
-        });
+        $.get("/tweets", (data) => renderTweets([data[data.length - 1]]));
       });
-      $textArea.val('');
-      $(this).find('.counter').text('140');
+      this.reset();
       $textArea.on('focus', function () {
         $('.add-tweet').find('p').remove();
       });
