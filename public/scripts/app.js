@@ -4,6 +4,7 @@ $(function(){
     // loops through tweets
       // calls createTweetElement for each tweet
       // takes return value and appends it to the tweets container
+    $('tweet-list').empty();
     for(let i of tweets){
       $('.tweet-list').prepend(createTweetElement(i));
     }
@@ -60,7 +61,7 @@ $(function(){
     if(formValidator($textArea.val())){
       event.preventDefault();
       $.post("/tweets", $textArea.serialize(), function () {
-        $.get("/tweets", (data) => renderTweets([data[data.length - 1]]));
+        $.get("/tweets", (data) => renderTweets(data));
       });
       this.reset();
       $textArea.on('focus', function () {
