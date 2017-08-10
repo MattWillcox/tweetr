@@ -1,27 +1,17 @@
 $(function(){
 
-  function renderTweets(tweets) {
-    // loops through tweets
-      // calls createTweetElement for each tweet
-      // takes return value and appends it to the tweets container
-    $('tweet-list').empty();
-    for(let i of tweets){
-      $('.tweet-list').prepend(createTweetElement(i));
-    }
-  }
-
   function createTweetHeader(user) {
-      let $tweetHeader = $('<header>');
-      $tweetHeader.append(`<img src=${user.avatars.small}>`)
+    let $tweetHeader = $('<header>');
+    $tweetHeader.append(`<img src=${user.avatars.small}>`)
       .append(`<h2 class='user-name'>${user.name}</h2>`)
       .append(`<span class='handle'>${user.handle}</span>`);
-      return $tweetHeader;
+    return $tweetHeader;
   }
 
-  function createTweetFooter(created_at) {
+  function createTweetFooter(createdAt) {
     let $tweetFooter = $('<footer>');
-    $tweetFooter.append("<div class='tweet-bottom-wrapper'>")
-    let timeStamp = $.format.prettyDate(created_at);
+    $tweetFooter.append("<div class='tweet-bottom-wrapper'>");
+    let timeStamp = $.format.prettyDate(createdAt);
     $tweetFooter.find('.tweet-bottom-wrapper').append(`<span class='tweet-bottom'>${timeStamp}`);
     $tweetFooter.find('.tweet-bottom').append('<img src="../images/flag.png" alt="flag">' +
       '<img src="../images/retweet.png" alt="retweet">' +
@@ -34,8 +24,18 @@ $(function(){
     $newTweet.append(createTweetHeader(tweet.user));
     let tweetContent = $('<div class="tweet-content">').text(tweet.content.text);
     $newTweet.append(tweetContent);
-    $newTweet.append(createTweetFooter(tweet.created_at));
+    $newTweet.append(createTweetFooter(tweet.createdAt));
     return $newTweet;
+  }
+
+  function renderTweets(tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    $('tweet-list').empty();
+    for(let i of tweets){
+      $('.tweet-list').prepend(createTweetElement(i));
+    }
   }
 
   function loadTweets(){
@@ -60,13 +60,15 @@ $(function(){
 
   loadTweets();
 
+  function getTweets() {
+    $.get("/tweets", (data) => renderTweets(data));
+  }
+
   $('.add-tweet').on('submit', function() {
     let $textArea = $(this).find('textarea');
     if(formValidator($textArea.val())){
       event.preventDefault();
-      $.post("/tweets", $textArea.serialize(), function () {
-        $.get("/tweets", (data) => renderTweets(data));
-      });
+      $.post("/tweets", $textArea.serialize(), getTweets());
       this.reset();
       $textArea.on('focus', function () {
         $('.add-tweet').find('p').remove();
