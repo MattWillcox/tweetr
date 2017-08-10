@@ -2,7 +2,7 @@
   position: fixed;
   height: 80px;
   width: 100%;
-  background-color: #00a087;
+  background-color: #0000D0;
   color: #e8fdff;
   padding-left: 2em;
   padding-right: 2em;
@@ -13,6 +13,7 @@
   float: left;
   font-size: 200%;
   line-height: 80px;
+  font-style: oblique;
 }
 
 #nav-bar .logo {
@@ -25,8 +26,14 @@
   float: right;
   height: 50px;
   margin-top: 15px;
+  border-radius: 5px;
+  color: navy;
+  font-style: oblique;
+  font-size: large;
 }
 
 .compose:hover {
   cursor: pointer;
+  border: dodgerblue;
+  border-style: outset;
 }

@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  font-style: oblique;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -22,13 +23,11 @@ body {
 }
 
 body .container {
-    width: 450px;
+    width:  500px;
     background-color: white;
     padding-top: 100px;
     padding-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
+    color: darkblue;
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

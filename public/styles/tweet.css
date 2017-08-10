@@ -1,6 +1,6 @@
 .container h1 {
-  border-bottom: 1px solid black;
-  margin-top: 0px;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .container form textarea {
@@ -24,6 +24,18 @@
   height: 160px;
 }
 
+.new-tweet input {
+  float:left;
+}
+
+.new-tweet p {
+  float:left;
+  margin-left: 30px;
+  margin-top: 5px;
+  color: #FF6347;
+
+}
+
 .tweet-list img {
   width: 40px;
   height: 40px;
@@ -32,6 +44,7 @@
 
 .tweet span {
   margin-left: auto;
+  color: black;
 }
 
 .tweet header {
@@ -55,22 +68,23 @@
   padding-left: 20px;
 }
 
-.tweet-bottom a {
+.tweet-bottom img {
   float: right;
-  padding-left: 3px;
-  font-size: 80%;
+  margin-left: 10px;
   line-height:20px;
+  height: 15px;
+  width: 15px;
   visibility: hidden;
 
 }
 
-.tweet-list:hover footer .tweet-bottom a {
+.tweet-list:hover footer .tweet-bottom img {
   visibility: visible;
 
 }
 
 .tweet-bottom {
-  font-size: 60%;
+  font-size: 70%;
 }
 
 .tweet {
@@ -82,6 +96,7 @@
 
 .tweet-list div {
   padding: 10px;
+  color: black;
 }
 
 .tweet-list {

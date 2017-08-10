@@ -6,7 +6,7 @@ $(document).ready(function(){
     const counter = $(this).parent().find('.counter');
 
     if (charsRemaining < 0) {
-      counter.css('color', 'red');
+      counter.css('color', 'tomato');
     } else {
       counter.css('color', 'black');
     }

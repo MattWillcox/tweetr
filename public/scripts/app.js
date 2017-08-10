@@ -23,7 +23,9 @@ $(function(){
     $tweetFooter.append("<div class='tweet-bottom-wrapper'>")
     let timeStamp = $.format.prettyDate(created_at);
     $tweetFooter.find('.tweet-bottom-wrapper').append(`<span class='tweet-bottom'>${timeStamp}`);
-    $tweetFooter.find('.tweet-bottom').append('<a href="/">Report</a><a href="/">Retweet</a><a href="/">Like</a>');
+    $tweetFooter.find('.tweet-bottom').append('<img src="../images/flag.png" alt="flag">' +
+      '<img src="../images/retweet.png" alt="retweet">' +
+      '<img src="../images/like-solid.png" alt="like">');
     return $tweetFooter;
   }
 
@@ -43,11 +45,13 @@ $(function(){
   function formValidator(data){
     if(data === "" || data === null){
       event.preventDefault();
+      $('.add-tweet').find('p').remove();
       $('<p>').text('Please enter some text.').appendTo('.add-tweet');
       return false;
     }
     if(data.length > 140){
       event.preventDefault();
+      $('.add-tweet').find('p').remove();
       $('<p>').text('Too many characters.').appendTo('.add-tweet');
       return false;
     }
