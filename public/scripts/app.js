@@ -61,14 +61,16 @@ $(function(){
   loadTweets();
 
   function getTweets() {
-    $.get("/tweets", (data) => renderTweets(data));
+
   }
 
   $('.add-tweet').on('submit', function() {
     let $textArea = $(this).find('textarea');
     if(formValidator($textArea.val())){
       event.preventDefault();
-      $.post("/tweets", $textArea.serialize(), getTweets());
+      $.post("/tweets", $textArea.serialize(), function () {
+        $.get("/tweets", (data) => renderTweets(data));
+      });
       this.reset();
       $textArea.on('focus', function () {
         $('.add-tweet').find('p').remove();
