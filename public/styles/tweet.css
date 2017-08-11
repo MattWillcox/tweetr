@@ -1,48 +1,113 @@
-#nav-bar {
-  position: fixed;
-  height: 80px;
-  width: 100%;
-  background-color: lightsteelblue;
-  color: #e8fdff;
-  padding-left: 2em;
-
-  padding-right: 2em;
-  z-index: 1;
+.container h1 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-#nav-bar .header {
-  float: left;
-  font-size: 300%;
-  line-height: 80px;
-  font-style: oblique;
-  font-weight: bolder;
-  padding-left: 20px;
-  text-shadow: -3px 2px 11px #244751;
+.container form textarea {
+  position: relative;
+  width: 410px;
+  height: 5em;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
-#nav-bar .logo {
-  height: 80px;
-  width: 80px;
-  float: left;
-}
-
-.compose {
+.counter {
   float: right;
-  height: 50px;
-  margin-top: 15px;
-  border-radius: 5px;
-  color: aliceblue;
-  font-style: oblique;
-  font-size: large;
-  font-weight: bold;
-  margin-right: 2em;
-  text-shadow: -1px 1px 0px #244751;
-  box-shadow: -2px 2px 6px 0px darkslategrey;
-  border-style: unset;
+  padding-top: 5px;
 }
 
-.compose:hover {
-  cursor: pointer;
-  border: darkslategrey;
-  border-style: double;
+.new-tweet {
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 1em;
+  margin-top: .5em;
+  background-color: slategrey;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: black;
+  height: 12em;
+}
+
+.new-tweet input {
+  float:left;
+}
+
+.new-tweet p {
+  float:left;
+  margin-left: 30px;
+  margin-top: 5px;
+  color: #FF6347;
+
+}
+
+.tweet-list img {
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+
+.tweet span {
+  margin-left: auto;
+  color: #e8fdff;
+}
+
+.tweet header {
+  display: flex;
+  flex-direction: row;
+}
+
+.tweet h2 {
+  padding-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-bottom: transparent;
+  line-height: 40px;
+}
+
+.tweet-list .tweet-content {
+  background-color: white;
+  width: 395px;
+  padding: 30px;
+}
+
+.tweet-bottom img {
+  float: right;
+  margin-left: 10px;
+  line-height:20px;
+  height: 15px;
+  width: 15px;
+  visibility: hidden;
+
+}
+
+.tweet-list:hover footer .tweet-bottom img {
+  visibility: visible;
+
+}
+
+.tweet-bottom {
+  font-size: 70%;
+}
+
+.tweet {
+  border-radius: 5px;
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-color: black;
+  background-color: lightslategrey;
+}
+
+.tweet-list div {
+  padding: 10px;
+  color: black;
+}
+
+.tweet-list {
+  margin-left: 2em;
+  margin-right: 2em;
+  padding: 10px 10px 10px 10px;
+  background-color: darkslategrey;
 }

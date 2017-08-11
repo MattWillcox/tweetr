@@ -2,18 +2,22 @@
   position: fixed;
   height: 80px;
   width: 100%;
-  background-color: #0000D0;
+  background-color: lightsteelblue;
   color: #e8fdff;
   padding-left: 2em;
+
   padding-right: 2em;
   z-index: 1;
 }
 
 #nav-bar .header {
   float: left;
-  font-size: 200%;
+  font-size: 300%;
   line-height: 80px;
   font-style: oblique;
+  font-weight: bolder;
+  padding-left: 20px;
+  text-shadow: -3px 2px 11px #244751;
 }
 
 #nav-bar .logo {
@@ -27,13 +31,18 @@
   height: 50px;
   margin-top: 15px;
   border-radius: 5px;
-  color: navy;
+  color: aliceblue;
   font-style: oblique;
   font-size: large;
+  font-weight: bold;
+  margin-right: 2em;
+  text-shadow: -1px 1px 0px #244751;
+  box-shadow: -2px 2px 6px 0px darkslategrey;
+  border-style: unset;
 }
 
 .compose:hover {
   cursor: pointer;
-  border: dodgerblue;
-  border-style: outset;
+  border: darkslategrey;
+  border-style: double;
 }
