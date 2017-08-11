@@ -1,8 +1,10 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page AJAX based Twitter clone that uses jQuery, HTML5 and CSS3. Users are stored using MongoDB.
+Tweeter is a simple, single-page AJAX based Twitter clone that uses jQuery, HTML5 and CSS3. Tweets are stored using MongoDB.
 
 ## Getting Started
+
+-- Must have MongoDB installed, refer to: https://docs.mongodb.com/manual/installation/ for instructions
 
 1. Clone this repository.
 2. Install dependencies using the `npm install` command.
