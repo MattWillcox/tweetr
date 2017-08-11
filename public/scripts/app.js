@@ -43,6 +43,7 @@ $(function(){
   }
 
   function formValidator(data){
+    // Validates that form is filled out and that it is less than 140 characters, otherwise presents an error message
     if(data === "" || data === null){
       event.preventDefault();
       $('.add-tweet').find('p').remove();
@@ -60,10 +61,7 @@ $(function(){
 
   loadTweets();
 
-  function getTweets() {
-
-  }
-
+  //Event handler for tweet submission
   $('.add-tweet').on('submit', function() {
     let $textArea = $(this).find('textarea');
     if(formValidator($textArea.val())){
@@ -78,6 +76,7 @@ $(function(){
     }
   });
 
+  //Event handle to trigger slide for new tweet section
   $('.compose').on('click', function() {
     $('.new-tweet').slideToggle("slow").find('textarea').focus();
   });

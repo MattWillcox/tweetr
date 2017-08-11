@@ -7,7 +7,7 @@ const express       = require("express");
 const bodyParser    = require("body-parser");
 const MongoClient   = require("mongodb").MongoClient;
 const dataHelpers   = require("./lib/data-helpers.js");
-const tweetsRoutes       = require("./routes/tweets");
+const tweetsRoutes  = require("./routes/tweets");
 const app           = express();
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
