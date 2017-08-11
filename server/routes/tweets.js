@@ -7,6 +7,8 @@ const tweetsRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
+    //Grabs tweets from DB and forwards them in JSON format
+
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -17,6 +19,9 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/", function(req, res) {
+    //Reads user submitted data from new tweet and calls saveTweet to store it in DB. Returns corresponding status if
+    //success or failure.
+
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
