@@ -18,16 +18,16 @@ html {
 body {
   margin: 0;
   color: #244751;
-  background-color: #eee;
+  background-color: grey;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
 body .container {
     width:  500px;
-    background-color: white;
     padding-top: 100px;
     padding-bottom: 60px;
     margin-left: auto;
     margin-right: auto;
-    color: darkblue;
+    color: #e8fdff;
+    background-color: darkslategray;
 }
