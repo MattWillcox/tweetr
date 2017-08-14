@@ -32,7 +32,7 @@ $(function(){
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    $('tweet-list').empty();
+    $('.tweet-list').empty();
     for(let i of tweets){
       $('.tweet-list').prepend(createTweetElement(i));
     }

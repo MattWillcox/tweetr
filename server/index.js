@@ -9,7 +9,7 @@ const MongoClient   = require("mongodb").MongoClient;
 const dataHelpers   = require("./lib/data-helpers.js");
 const tweetsRoutes  = require("./routes/tweets");
 const app           = express();
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+const MONGODB_URI = "mongodb://localhost:27017/tweetr";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -19,6 +19,8 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;
   }
+
+  db.collection('tweets', function(err, collection) {});
 
   app.use("/tweets", tweetsRoutes(dataHelpers(db)));
 
