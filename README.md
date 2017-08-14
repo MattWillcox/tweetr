@@ -5,7 +5,7 @@ Tweeter is a simple, single-page AJAX based Twitter clone that uses jQuery, HTML
 ## Getting Started
 
 Must have MongoDB installed, refer to: https://docs.mongodb.com/manual/installation/ for instructions.
-Our DB is titled: 'tweeter' and we use a collection titled 'tweets' to read/write the tweets.
+Our DB is titled: 'tweetr' and we use a collection titled 'tweets' to read/write the tweets.
 
 1. Clone this repository.
 2. Install dependencies using the `npm install` command.
